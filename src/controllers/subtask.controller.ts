@@ -146,18 +146,21 @@ export default class SubtaskController {
           $pull: {
             "tasks.$.subtasks": { _id: subtaskId },
           },
+        },
+        {
+          new: true,
         }
       );
 
       if (!deletedSubtask) {
-        return res.status(201).json({
-          content: null,
-          message: `Was not possible to delete the subtask: ${subtaskId}`,
+        return res.status(404).json({
+          content: false,
+          message: `Subtask ${subtaskId} not found.`,
         });
       }
 
-      return res.status(201).json({
-        content: deletedSubtask,
+      return res.status(200).json({
+        content: true,
         message: `Subtask ${subtaskId} was removed.`,
       });
     } catch (err) {
