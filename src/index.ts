@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import Routes from "./routes";
 import mongoose from "mongoose";
+import cors from "cors";
 
 export default class Server {
   constructor(app: Application) {
@@ -15,6 +16,7 @@ export default class Server {
         err
       );
     });
+    app.use(cors());
     app.use(express.json());
     app.use(express.urlencoded({ extended: true }));
   }
