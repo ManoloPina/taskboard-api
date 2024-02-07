@@ -130,6 +130,14 @@ class BoardController {
       Utils.handleCatchRequest(req as any, res, err);
     }
   };
+
+  getById = async () => {
+    try {
+      
+    }catch(err) {
+
+    }
+  }
 }
 
 export default BoardController;

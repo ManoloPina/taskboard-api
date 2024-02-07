@@ -48,8 +48,6 @@ export default class TaskController {
 
   list = async (req: AuthenticatedRequest<IParams, ITask>, res: Response) => {
     try {
-      console.log("passou aqui!!!");
-
       const user_id = req.auth?.userId;
       const boardId = req.params?.boardId;
 
@@ -165,4 +163,5 @@ export default class TaskController {
       Utils.handleCatchRequest(req, res, error);
     }
   };
+
 }
